@@ -1,0 +1,58 @@
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+  }
+  body{
+   background-color: yellow;
+   padding: 50px;
+   margin:50px;
+ }
+ 
+ .todo-app {
+  display: flex;
+flex-direction: column;
+justify-content: start;
+width: 500px;
+min-width: 600px;
+background: #161a2b;
+text-align: center;
+margin: 100px;
+border-radius: 5px;
+  padding-bottom: 30px;
+}
+.todo-form{
+  margin-bottom: 20px;
+}
+.todo-input{
+outline: none;
+border: 2px solid orange;
+width: 350px;
+background: green;
+color: white;
+}
+.btn btn-success{
+  padding: 5px;
+  border-radius: 0 4px 4px 0;
+  text-transform: capitalize;
+}
+.todo-input.edit{
+  border: 2px solid blue;
+}
+.todo-row{
+  background: linear-gradient( orange,orangered ,red);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid green;
+
+}
+
+
+.btb btn-danger{
+  margin-left: 5px;
+}
+h2{
+color: orange;
+margin: 30px 0 ;
+}
