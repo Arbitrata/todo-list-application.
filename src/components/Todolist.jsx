@@ -1,12 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState ,useEffect} from 'react'
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import pic1 from "../components/Image/todome.png"
-import axios from 'axios';
+import axios from "axios"
+
 
 
 function Todolist() {
     const [todos, setTodos]=useState([]);
+     const [setError]=useState(null);
 
     const addTodo = todo => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -16,8 +18,20 @@ function Todolist() {
         const newTodos =[todo, ...todos];
 setTodos(newTodos);
 
-    };
 
+
+
+    };
+   
+    const getTodos = () => {
+        axios.get('https://my-json-server.typicode.com/arbitrata/my-server/todos')
+          .then(res => setTodos(res.data))
+          .catch( error => setError(error.message));
+      }
+      useEffect(()=>{
+    getTodos();
+    
+      }, []);    
 
     const upadtedTodo =(todoId ,newValue) => {
 

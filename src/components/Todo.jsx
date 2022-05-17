@@ -23,13 +23,15 @@ if (edit.id) {
     }
 
 return todos.map((todo  , index ) =>(
+
     <div
      className={todo.isComplite ? 'todo-row complete':'todo-row'}  
      key={index}
     > 
-    
+
+
 <div key={todo.id} onClick ={()=> completeTodo(todo.id)}>
-    {todo.text}
+    {todo.description}
 
 
 </div>
