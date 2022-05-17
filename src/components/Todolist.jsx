@@ -8,7 +8,8 @@ import axios from "axios"
 
 function Todolist() {
     const [todos, setTodos]=useState([]);
-     const [error ,setError]=useState(null);
+     const [setError]=useState(null);
+
     const addTodo = todo => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return 
@@ -23,7 +24,7 @@ setTodos(newTodos);
     };
    
     const getTodos = () => {
-        axios.get('http://my json-server.typicode.com/Arbitrata/my-server/todos')
+        axios.get('https://my-json-server.typicode.com/arbitrata/my-server/todos')
           .then(res => setTodos(res.data))
           .catch( error => setError(error.message));
       }
