@@ -1,13 +1,17 @@
 import React,{useState} from 'react'
 import TodoForm from './TodoForm';
 import Todo from './Todo';
+import pic1 from "../components/Image/todome.png"
+import axios from 'axios';
+
 
 function Todolist() {
     const [todos, setTodos]=useState([]);
 
     const addTodo = todo => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
-            return
+            return 
+
         }
         const newTodos =[todo, ...todos];
 setTodos(newTodos);
@@ -29,6 +33,14 @@ setTodos(newTodos);
         const removeArr =[...todos].filter(todo => todo.id !==id)
         setTodos(removeArr)
     }
+    const handleCheckboxChange=(id)=>{
+        const newTodolist=todos.map(todo => {
+            if (todo.id===id) 
+return {...todo ,done:!todo.done}
+    return todo;
+        })
+       setTodos(newTodolist)
+    }
 
 const completeTodo= id =>{
     let upadtedTodo = todos.map(todo => {
@@ -43,10 +55,13 @@ todo.iscomplete =!todo.iscomplete
 
   return (
     <div className='w-200'>
-     <h2> hello there... how is your day planned </h2>
+        <div className='d-flex justify-content-center'>
+          <img src={pic1} alt="todo pic" />
 
-<TodoForm onSubmit={addTodo}/>
-<Todo todos ={todos} updateTodo={upadtedTodo}  completeTodo={completeTodo} 
+     <h2> hello there... how is your day planned </h2>
+     </div>
+<TodoForm onSubmit={addTodo} />
+<Todo todos ={todos} updateTodo={upadtedTodo} handleChange={handleCheckboxChange} completeTodo={completeTodo} 
  removeTodo={removeTodo}  />
     </div>
   )

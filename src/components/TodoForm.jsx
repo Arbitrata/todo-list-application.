@@ -22,7 +22,6 @@ setInput('')
 
 
     <form className='todo-form' onSubmit={handleSubmit}>
-  
 <input
  type="text"
 placeholder='Add a todo'
@@ -31,7 +30,7 @@ name="text"
 className='todo-input'
 onChange={handleChange}
 />
-<button className='btn btn-success'> Add todo </button>
+<button className='btn btn-success m-2' type=''> Add todo </button>
 
     </form>
 
